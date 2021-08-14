@@ -1,0 +1,43 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id         String   @id @default(uuid())
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+  name       String
+  username   String   @unique
+  email      String   @unique
+  password   String
+
+  @@map(name: "users")
+}
+
+model Lesson {
+  id         String   @id @default(uuid())
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+  name       String
+  course_id  String?
+  course     Course?   @relation(fields: [course_id], references: [id])
+
+  @@map(name: "lessons")
+}
+
+model Course {
+  id         String   @id @default(uuid())
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+  title      String
+  image      String
+  stars      Int
+  lessons    Lesson[]
+
+  @@map(name: "courses")
+}

@@ -1,0 +1,15 @@
+# Set the version of docker compose to use
+version: '3.9'
+
+# The containers that compose the project
+services:
+  postgres:
+    image: postgres:13
+    restart: always
+    container_name: eduick
+    ports:
+      - '5434:5432'
+    environment:
+      POSTGRES_USER: eduick
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: eduick
