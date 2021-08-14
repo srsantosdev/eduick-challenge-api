@@ -2,6 +2,8 @@
   <img alt="EDUICK" title="EDUICK" src=".github/logo.png" width="200" />
 </h1>
 
+[POSTMAN WORKSPACE - Acesse as requisições aqui](https://www.postman.com/speeding-trinity-534186/workspace/eduick/overview)
+
 ### 🛠 Tecnologias
 
 - [TypeScript](https://www.typescriptlang.org/)
